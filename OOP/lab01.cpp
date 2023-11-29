@@ -109,19 +109,23 @@ class StudentManagement
                 TLStudent student;
                 student.input();
                 student.output();
-                Class[student.getClass()].push_back(student);
+                Class[student.getClass().getName()].push_back(student);
             }
         }
         // 2. Xóa sinh viên khỏi danh sách
         void removeStudent(string id)
         {
-            for (auto & cl : Class.first)
-                if (student.getID == id)
+            for (auto & cl : Class)
+            {
+                for (auto it = cl.second.begin(); it != cl.second.end(); ++it)
                 {
-                    // cl.erase(std::remove(begin(Class), end(Class), student), cl.end());
-                    cl.erase(this->student);
-                    return;
+                    if (it->getID() == id)
+                    {
+                        cl.second.erase(it);
+                        return;
+                    }
                 }
+            }
         }
         // 3. Tìm kiếm sinh viên theo mã
         void searchByID (string id)
@@ -129,9 +133,9 @@ class StudentManagement
             bool check = false;
             for (auto & cl : Class)
             {
-                for (auto &student : cl)
+                for (auto &student : cl.second)
                 {
-                    if (student.id == id)
+                    if (student.getID() == id)
                     {
                         student.output();
                         return;
@@ -142,9 +146,9 @@ class StudentManagement
         }
         // 4. Liệt kê danh sách tất cả sinh viên
         // Liệt kê sinh viên trong lớp
-        void listStudentOfClass(TLClass &cl)
+        void listStudentOfClass(string name_class)
         {
-            for (auto &student : cl)
+            for (auto &student : Class[name_class])
             {
                 student.output();
             }
@@ -153,41 +157,27 @@ class StudentManagement
         {
             for (auto &cl : Class)
             {
-                listStudentOfClass(cl);
+                listStudentOfClass(cl.first);
                 cout << '\n';
             }
         }  
         // 5. Liệt kê danh sách sinh viên theo id của lớp
         void listStudentByIDofCLass (string id_class)
         {
-            for (auto &cl : Class)
+            for (auto &cl : Class) // Duyêt qua các tên lớp
             {
-                if (cl.getID() == id_class)
+                for (auto &student : cl.second)
                 {
-                    cl.output();
-                    cout << '\n';
-                    return;
+                    if (student.getClass().getID() == id_class)
+                    {
+                        student.output();
+                    }
                 }
             }
             cout << "Khong tim thay lop hoc co id nhu vay\n";
         }
         
         // 6. Liệt kê danh sách sinh viên có điểm lớn hơn hoặc bằng 5.0 và số lượng sinh viên 
-        // Hàm in ra các sinh viên thỏa mãn điều kiện
-        void list_with_constrain(bool check(), int &count)
-        {
-            for (auto &cl : Class)
-            {
-                for (auto &student : cl)
-                {
-                    if (check())
-                    {
-                        count++;
-                        student.output();
-                    }
-                }
-            }
-        }
         bool check_greater_than_5(TLStudent &student)
         {
             return student.getNote() >= 5.0;
@@ -195,7 +185,17 @@ class StudentManagement
         void list_greater_than_5()
         {
             int count = 0;
-            list_with_constrain(check_greater_than_5(), count);
+            for (auto &cl : Class)
+            {
+                for (auto &student : cl.second)
+                {
+                    if (check_greater_than_5(student))
+                    {
+                        count++;
+                        student.output();
+                    }
+                }
+            }
             cout << "So luong sinh vien co diem lon hon hoac bang 5.0: " << count << endl;
         }
         // 7. Liệt kê danh sách sinh viên có điểm dưới 5.0 và số lượng sinh viên
@@ -203,24 +203,44 @@ class StudentManagement
         {
             return student.getNote() < 5.0;
         }
-        void list_greater_than_5()
+        void list_less_than_5()
         {
             int count = 0;
-            list_with_constrain(check_less_than_5(), count);
+            for (auto &cl : Class)
+            {
+                for (auto &student : cl.second)
+                {
+                    if (check_less_than_5(student))
+                    {
+                        count++;
+                        student.output();
+                    }
+                }
+            }
             cout << "So luong sinh vien co diem nho hon 5.0: " << count << endl;
         }
         // 8. Liệt kê danh sách sinh viên có điểm cao nhất và số lượng sinh viên 
         bool check_has_max_note(TLStudent &student, double MAX)
         {
-            return student.getNote == MAX;
+            return student.getNote() == MAX;
         }
         void listStudentHaveMaxNote ()
         {
-            double max_note = DBL_MIN;
+            double max_note = 0;
             for (auto &cl : Class)
-                max_note = max(max_note, *max_element(begin(cl), end(cl)));
+                max_note = std::max(max_note, max_element(begin(cl.second), end(cl.second), [](TLStudent &a, TLStudent &b) {return a.getNote() < b.getNote();})->getNote());
             int count = 0;
-            list_with_constrain(check_has_max_note(), count);
+            for (auto &cl : Class)
+            {
+                for (auto &student : cl.second)
+                {
+                    if (check_has_max_note(student, max_note))
+                    {
+                        count++;
+                        student.output();
+                    }
+                }
+            }
             cout << "So luong sinh vien co diem cao nhat: " << count << endl;
         }
 };
