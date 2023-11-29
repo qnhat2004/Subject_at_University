@@ -15,7 +15,7 @@ A E
 50
 */
 
-// Best Frist Search
+// Best First Search
 typedef pair<char, int> node;
 class compare
 {
