@@ -1,9 +1,22 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+/* input:
+5 5 E
+A B
+B C
+A D
+B D
+A E
+10
+20
+30
+40
+50
+*/
+
 // Best Frist Search
 typedef pair<char, int> node;
-
 class compare
 {
     public:
