@@ -14,29 +14,29 @@ bool DPS (int v, int limit, int n, vector<vector<int>> &adj) // Đỉnh cần t�
     if (limit < 0)
         return false;
 
-        while (st.size())
+    while (st.size())
+    {
+        int cur = st.top();
+        st.pop();
+
+        if (cur == v)  return true;
+
+        for (auto &i : adj[cur])
         {
-            int cur = st.top();
-            st.pop();
+            if (!visited[i])
+            {   
+                depth[i] = depth[cur] + 1;
 
-            if (cur == v)  return true;
-
-            for (auto &i : adj[cur])
-            {
-                if (!visited[i])
-                {   
-                    depth[i] = depth[cur] + 1;
-
-                    if (depth[i] <= limit)
-                    {
-                        if (i == v) return true;
-                            
-                        st.push(i);
-                        visited[i] = true;
-                    }
+                if (depth[i] <= limit)
+                {
+                    if (i == v) return true;
+                        
+                    st.push(i);
+                    visited[i] = true;
                 }
             }
         }
+    }
     return false;
 }
 
