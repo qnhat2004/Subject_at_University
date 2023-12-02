@@ -2,17 +2,18 @@
 using namespace std;
 
 /* input1:
-5 5 E
+5 5 
+A E
 A B
 B C
 A D
 B D
 A E
-10
-20
-30
-40
-50
+A 10
+B 20
+C 30
+D 40
+E 50
 */
 
 /* input2:
