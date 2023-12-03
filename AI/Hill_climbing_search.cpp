@@ -78,7 +78,7 @@ bool dfs(char from, char to, map<char, vector<char>> &adj, map<char, int> &h)
 int main()
 {
     int n, m;
-    cout << "Row, collum: "; cin >> n >> m;
+    cout << "Number of vertexs and edges: "; cin >> n >> m;
 
     cout << "Edges list:\n";
     map<char, vector<char>> adj;
