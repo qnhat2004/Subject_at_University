@@ -2,6 +2,7 @@
 using namespace std;
 
 /* input1:
+3
 5 5 
 A E
 A B
@@ -17,6 +18,7 @@ E 50
 */
 
 /* input2:
+2
 8 11
 S A
 S F
@@ -110,12 +112,9 @@ int main()
             cout << path << endl;
             return 0;
         }
-
-        int count = 0;
-
+        
         for (auto &next : adj[cur])
         {
-            if (count++ == k) break;
             if (visited.find(next) == visited.end())
             {
                 // if (next == target)
