@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>   
 using namespace std;
 
-// Hill-climbing algorithm - Thuật toán leo đồi
+// Hill-climbing algorithm
 
 typedef pair<char, int> node;
 
@@ -73,5 +73,5 @@ int main()
     map<char, int> h; // heuristic
     for (auto &i : adj) cin >> h[i.first];
         
-    cout << "Result: " << dfs(from, to, adj, h) << endl;
+    cout << "Result: " << (dfs(from, to, adj, h) ? "Found\n" : "Not found\n") << endl;
 }
