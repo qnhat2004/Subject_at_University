@@ -3,6 +3,30 @@ using namespace std;
 
 // Hill-climbing algorithm
 
+/* input:
+8 11
+S A
+S F
+S A
+F B
+A B
+A E
+B E
+E C
+B C
+B D
+D G
+C G
+S 8
+F 4
+A 5
+B 4
+E 3
+D 1
+C 1
+G 0
+*/
+    
 typedef pair<char, int> node;
 
 class compare
