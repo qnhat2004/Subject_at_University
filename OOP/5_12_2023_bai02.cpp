@@ -6,10 +6,9 @@ class Point
     double x, y;
 
     // Cấu tử - Constructor
-    Point(double x, double y)
+    Point()
     {
-        this->x = x;
-        this->y = y;
+       x = y = 0;
     }
 
     ~Point()
