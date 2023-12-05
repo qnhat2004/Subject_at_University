@@ -81,7 +81,15 @@ int main()
 
     for (int i = 0; i < n; ++i)
     {
-        
+        cout << "toa do diem thu " << i + 1 << ": ";
     }
+
+    for (int i = 0; i < n; ++i)
+    {
+        if (KiemTra(a[i]))
+        {
+            cout << a[i];
+        }
+    }        
     return 0;
 }
