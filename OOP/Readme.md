@@ -2,4 +2,5 @@
 - Nạp chồng toán tử - Operator overloading
 - Code thuật toán trên SPOJ
 - Code bài tập thực hành
-- Kế thừa - inheritance
+- Các đặc tính của class
+    - Tính kề thừa - Inheritance
