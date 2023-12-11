@@ -15,10 +15,7 @@ class Math
         
         static int max (int a, int b) { return a > b ? a : b; }
         
-        static int max (int a, int b, int c) { 
-            if (a > b && a > c) return a;
-            if (b > c) return b;
-        }
+        static int max(int a, int b, int c) { return Math::max(Math::max(a, b), c); }
 };
 
 int main()
