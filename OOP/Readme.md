@@ -2,5 +2,7 @@
 - Nạp chồng toán tử - Operator overloading
 - Code thuật toán trên SPOJ
 - Code bài tập thực hành
-- Các đặc tính của class
+- 4 đặc tính của OOP:
     - Tính kề thừa - Inheritance
+    - Tính đóng gói - Encapsulation
+    - 
