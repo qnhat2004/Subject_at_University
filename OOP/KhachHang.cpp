@@ -14,6 +14,7 @@ class KhachHang
 
         friend istream& operator >> (istream &in, KhachHang &kh)
         {
+        	cout << "------------------------------\n";
             cout << "Nhap ma khach hang: "; in >> kh.maKH; in.ignore();
             cout << "Nhap ten khach hang: "; getline(in, kh.name);
             cout << "Nhap dia chi: "; getline(in, kh.diachi);
@@ -33,11 +34,16 @@ class KhachHang
             out << "Loai khach hang: " << kh.loaiKH << endl;
             return out;
         }
+        
+        bool operator < (const KhachHang &kh) const
+        {
+        	return name < kh.name;
+		}
 };
 
 class MatHang
 {
-    ll mahang; // số nguyên có 4 chữ số, tự động tăng
+    ll mahang; // Số nguyên có 4 chữ số, tự động tăng
     string tenhang, nhomhang; // Nhóm hàng: hàng thời trang, tiêu dùng, điện máy, gia dụng
     double giaban;
 
@@ -47,6 +53,7 @@ class MatHang
         
         friend istream& operator >> (istream &in, MatHang &mh) // Function overloading
         {
+        	cout << "-------------------------------\n";
             cout << "Nhap ma hang: "; in >> mh.mahang; in.ignore();
             cout << "Nhap ten hang: "; getline(in, mh.tenhang);
             cout << "Nhap nhom hang: "; getline(in, mh.nhomhang);
@@ -63,6 +70,10 @@ class MatHang
             out << "Nhom hang; " << mh.nhomhang << endl;
             out << "Gia ban: " << mh.giaban << endl;
             return out;
+        }
+        bool operator< (const MatHang &mh) const
+        {
+            return tenhang < mh.tenhang;
         }
 };
 
@@ -92,22 +103,33 @@ class BangDanhSachMuaHang
         set<MatHang> mat_hang_trong_kho;
 
     public:
+    	void nhap_mat_hang_trong_kho()
+    	{
+    		int so_luong_mh;
+    		cout << "Nhap so luong mat hang trong kho: "; cin >> so_luong_mh;
+    		for (int i = 0; i < so_luong_mh; ++i)
+    		{
+    			cout << "------------Nhap mat hang thu " << i + 1 << "------------\n" << endl;
+    			MatHang mh; cin >> mh;
+    			mat_hang_trong_kho.insert(mh);
+			}
+		}
         void in_mat_hang_trong_kho()
         {
-            cout << "Cac mat hang co san trong kho:\n";
+            cout << "-------------Cac mat hang co san trong kho:--------------\n";
             for (auto hang : mat_hang_trong_kho) cout << hang;
         }
 
-        vector<MatHang> nhap_ds_hang() // Nhập danh sách hàng cần mua của 1 khách hàng
+        vector<MatHang> nhap_ds_hang() // Nhập danh sách hàng cần mua của 1 khách hàng 1 khách hàng
         {
             vector<MatHang> ds_hang;
             int so_luong_hang; // Số lượng hàng cần mua của mỗi khách hàng
-            cout << "Nhap so luong mat hang: "; cin >> so_luong_hang;
+            cout << "-------Nhap so luong mat hang:---------"; cin >> so_luong_hang;
             for (int i = 0; i < so_luong_hang; ++i)
             {
                 MatHang mh; cin >> mh;
                 ds_hang.push_back(mh);
-                mat_hang_trong_kho.insert(mh); // Thêm mặt hàng này vào kho (set)
+                mat_hang_trong_kho.insert(mh); // Thêm m?t hàng này vào kho (set)
             }
             return ds_hang;
         }
@@ -125,7 +147,7 @@ class BangDanhSachMuaHang
         void nhap_ds_kh()
         {
             int so_luong_kh; // Số lượng khách hàng
-            cout << "Nhap so luong khach hang: "; cin >> so_luong_kh;
+            cout << "-----------------Nhap so luong khach hang:-----------------"; cin >> so_luong_kh;
             for (int i = 0; i < so_luong_kh; ++i)
             {
                 KhachHang kh; cin >> kh;
@@ -148,10 +170,10 @@ class BangDanhSachMuaHang
             }
         }
 
-        // void sap_xep_ds_mua_hang_ten_kh()
-        // {
-        //     sort(ds_kh.begin(), ds_kh.end(), compareKhachHang);
-        // }
+//         void sap_xep_ds_mua_hang_ten_kh()
+//         {
+//             sort(ds_kh.begin(), ds_kh.end(), compareKhachHang);
+//         }
 
         // void sap_xep_ds_mua_hang_ten_mat_hang(KhachHang &kh)
         // {
@@ -181,12 +203,13 @@ int main()
 {
     BangDanhSachMuaHang ds_mua_hang;
 
-    // 1. Nhập danh sách mặt hàng mới, in ra danh sách các mặt hàng đã có
-    // 2. Nhập danh sách khách hang, in ra danh sách khách hàng đã có
+    // 1. Nhập danh sách mặt hàng mới, in ra danh sách các mặt hàng dã có
+    ds_mua_hang.nhap_mat_hang_trong_kho();
+    ds_mua_hang.in_mat_hang_trong_kho();
+    
+    // 2. Nhập danh sách khách hàng, in ra danh sách khách hàng dã có
     ds_mua_hang.nhap_ds_kh();
     ds_mua_hang.in_ds_kh();
-
-    ds_mua_hang.in_mat_hang_trong_kho();
 
     // 3. Lập bảng danh sach mua hàng cho từng khách hàng, in danh sách ra màn hình
     ds_mua_hang.in_ds_mua_hang();
@@ -202,7 +225,7 @@ int main()
     // cout << "Danh sach mua hang sap xep theo ten mat hang:\n";
     // ds_mua_hang.in_ds_mua_hang();
 
-    // 5. Lập hóa đơn cho mỗi khách hàng
+    // 5. L?p hóa don cho m?i khách hàng
     ds_mua_hang.lap_hoa_don();
 
     return 0;
