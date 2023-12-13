@@ -18,10 +18,10 @@
 - Nạp chồng toán tử **cộng, trừ, nhân, chia** giữa 2 đối tượng
 - Nạp chồng toán tử **dấu ngoặc đơn**: tạo 1 functional object để so sánh 2 đối tượng trong **hàng đợi ưu tiên**
 - Nạp chồng toán tử **tăng giảm: Increment & Decrement**: tăng hoặc giảm 1 giá trị của đối tượng được nạp chồng
-    **-Lý do prefix không có dummy parameter mà postfix lại có:**
+    - **Lý do prefix không có dummy parameter mà postfix lại có:**
           - Dùng nó để phân biệt giữa **prefix** và **postfix**
           - Tham số giả này được tạo ra với giá trị = 0, lúc ấy nó giống như biểu thức trung tố (+, -, >, <) giữa 2 toán hạng với 1 giá trị bằng 0
-    **Phân biệt sự khác nhau của prefix và postfix:**
+    - **Phân biệt sự khác nhau của prefix và postfix:**
           - **prefix**: tăng trực tiếp giá trị của đối tượng, trả về đối tượng đó -> giá trị trả về đã được tăng rồi
           - **postfix**: tạo 1 bản sao của đối tượng, tăng giá trị của đối tượng đó, trả về giá trị của bản sao (giá trị cũ) -> đối tượng đã được tăng nhưng giá trị trả về vẫn là giá trị cũ, nghĩa là sau khi hết              câu lệnh ta mới nhìn thấy giá trị thật(đã được tăng) của đối tượng
   
