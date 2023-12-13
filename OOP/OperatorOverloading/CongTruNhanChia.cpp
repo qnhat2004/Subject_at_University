@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Binary Arithmetics - Số học nhị phân
+
 class Complex
 {
     int real, img; // img = imaginary (ảo)
