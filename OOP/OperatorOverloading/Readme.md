@@ -17,4 +17,4 @@
 **Các hàm nạp chồng:**
 - Nạp chồng toán tử **cộng, trừ, nhân, chia** giữa 2 đối tượng
 - Nạp chồng toán tử **dấu ngoặc đơn**: tạo 1 functional object để so sánh 2 đối tượng trong **hàng đợi ưu tiên**
-  
+- Nạp chồng toán tử **tăng giảm: Increment & Decrement**: tăng hoặc giảm 1 giá trị của đối tượng được nạp chồng
