@@ -1,12 +1,13 @@
-**TÁC DỤNG CỦA NẠP CHỒNG**
+# Nạp chồng trong hướng đối tượng
+## TÁC DỤNG CỦA NẠP CHỒNG
 - nạp chồng phương thức giúp tái sử dụng phương thức đó cho các kiểu dữ liệu khác nhau, hoặc với số lượng tham số khác nhau
   
-**NẠP CHỒNG TOÁN TỬ**
+## NẠP CHỒNG TOÁN TỬ
 
 **Lý do phải nạp chồng toán tử**: các toán tử thông thường được sử dụng với các kiểu dữ liệu nguyên thủy được định nghĩa sẵn (int, double, float,...) nhưng ta muốn sử dụng toán tử giữa các kiểu dữ liệu tự định nghĩa (class, struct) thì ta phải định nghĩa thêm cho toán tử ấy. Nạp chồng không làm mất đi ý nghĩa ban đầu của toán tử mà bổ sung thêm ý nghĩa mới với những ý nghĩa ban đầu.
 
-* Cú pháp nạp chồng toán tử:
-**<kiểu trả về> operator <danh sách đối số>**
+# Cú pháp nạp chồng toán tử:
+    <kiểu trả về> operator <danh sách đối số> { }
 
 **Các cách sử dụng nạp chồng toán tử:**
 - Khai báo nó trong **class**
@@ -16,7 +17,7 @@
 
 **Các hàm nạp chồng:**
 - Nạp chồng toán tử **cộng, trừ, nhân, chia** giữa 2 đối tượng
-- Nạp chồng toán tử **dấu ngoặc đơn**: tạo 1 functional object để so sánh 2 đối tượng trong **hàng đợi ưu tiên**
+- Nạp chồng toán tử **dấu ngoặc đơn**: Tạo ra **Functor**(function object) - có thể sử dụng đối tượng như 1 hàm
 - Nạp chồng toán tử **tăng giảm: Increment & Decrement**: tăng hoặc giảm 1 giá trị của đối tượng được nạp chồng
     - **Lý do prefix không có dummy parameter mà postfix lại có:**
           - Dùng nó để phân biệt giữa **prefix** và **postfix**
