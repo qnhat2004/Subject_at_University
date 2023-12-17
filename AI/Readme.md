@@ -25,7 +25,8 @@
 
 
 
-![image](https://github.com/qnhat2004/Subject_at_University/assets/126136518/0dc77cbf-6d07-4d63-ac23-a17a261b9e63)
+![image](https://github.com/qnhat2004/Subject_at_University/assets/126136518/34b6e7c5-89cc-41e3-b321-4897bbf02261)
+
 
 ## Sử dụng thuật toán tìm kiếm vào tìm đường đi trong các trò chơi
   - Bài toán tháp Hà Nội ([Tower of Ha Noi](https://github.com/qnhat2004/Subject_at_University/blob/main/AI/TowerOfHaNoi.cpp))
