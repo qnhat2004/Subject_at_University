@@ -1,5 +1,5 @@
-# Subject
-Code respository: Kho lưu trữ code & hướng dẫn chi tiết các môn  học
+# 🤗 Subject at University - Các môn học trên trường đại học
+Code respository: Kho lưu trữ code & hướng dẫn chi tiết các môn học
 - Trí tuệ nhân tạo - AI (Artifical Intelligence)
     + Các thuật toán tìm kiếm
     + Code ứng dụng thuật toán tìm kiếm để áp dụng vào giải các bài toán và trò chơi thực tế
