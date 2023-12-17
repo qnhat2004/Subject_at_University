@@ -15,4 +15,4 @@ Code respository: Kho lưu trữ code & hướng dẫn chi tiết các môn họ
     + Thuật toán
 
 
-> 🤔 Nếu có câu hỏi cần được giải đáp, bạn có thể truy cập vào phần [Discussion](https://github.com/qnhat2004/Subject_at_University/discussions) và chọn **New** hoặc vào lại cuộc trò chuyện đã có. Mình rất vui khi giải đáp các thắc mắc của các bạn 😊😊
+> 🤔 Nếu có câu hỏi cần được giải đáp, bạn có thể truy cập vào phần [Discussion](https://github.com/qnhat2004/Subject_at_University/discussions) và chọn **New Discussion** hoặc chọn cuộc trò chuyện đã có. Mình rất vui khi giải đáp các thắc mắc của các bạn 😊😊
