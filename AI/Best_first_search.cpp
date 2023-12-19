@@ -26,7 +26,7 @@ B 0
 H 3
 */
 
-// Best First Search
+// Best First Search: Giống thuật toán A-Star, nhưng dựa vào hàm đánh giá h(heuristic) để sắp xếp danh sách OPEN theo thứ tự tăng dần
 typedef pair<char, int> node;
 // typedef pair<char, vector<char>> path;
 
