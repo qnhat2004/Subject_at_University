@@ -1,46 +1,88 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+/* input1:
+k = 2
+Vertices, Edges: 10 9
+Start, Target: A B
+Edges:
+A C
+A D
+A E
+D F
+D I
+E G
+E K
+G B
+G H
+Vertex & Heuristic:
+A 20
+C 15
+D 6
+E 7
+F 10
+I 8
+G 5
+K 12
+B 0
+H 3
+*/
+
+/* ouput1:
+Found
+A E G B
+*/
+
+// Beam Search: Giống tìm kiếm tốt nhất đầu tiên, dựa vào heuristic để tìm kiếm, nhưng chỉ phát triển k đỉnh tốt nhất tại mỗi độ sâu, được dùng khi đồ thị quá rộng
 typedef pair<char, int> node;
 
 class compare
 {
     public:
-        bool operator()(node const &a, node const &b)
+        bool operator()(node const &a, node const &b) // Call function (Hàm gọi), 
         {
-            return a.second > b.second;
+            return a.second < b.second;
         }
 };
 
-string getPath(char start, char target, map<char, char> &parent)
+void getPath(char start, char target, map<char, char> &parent)
 {
-    string path = "";
-    for (char v = target; v != start; v = parent[v])
-        path =  v + " " + path;
-    path = start + " " + path;
-    return path;
+    vector<char> path;
+    char cur = target;
+    while (cur != '0')
+    {
+        path.push_back(cur);
+        cur = parent[cur];
+    }
+    for (int i = path.size() - 1; i >= 0; --i)
+        cout << path[i] << ' ';
 }
 
 int main()
 {
     int k;
-    cout << "Enter k: "; cin >> k;
+    cout << "k = "; cin >> k;
 
     int n, m;
+    cout << "Vertices, Edges: ";
     cin >> n >> m;
 
     char start, target;
+    cout << "Start, Target: ";
     cin >> start >> target;
 
     map<char, vector<char>> adj;
 
+    cout << "Edges:\n";
     for (int i = 0; i < m; ++i)
     {
         char u, v; cin >> u >> v;
-        adj[u].push_back(v);
+        adj[u].push_back(v); // Directed Graph - Đồ thị có hướng
+        // adj[v].push_back(u); // Undirected Graph - Đồ thị vô hướng
     }
 
-    map<char, int> heuristic;
+    map<char, int> heuristic; // hàm heauristic của đỉnh i
+    cout << "Vertex & Heuristic:\n";
     for (int i = 0; i < n; ++i)
     {
         char v; int hv;
@@ -49,40 +91,33 @@ int main()
     }
 
     map<char, bool> visited;
-    map<char, char> parent;
+    visited[start] = true;
 
     priority_queue<node, vector<node>, compare> pq;
     pq.push(make_pair(start, heuristic[start]));
+
+    map<char, char> parent;
+    parent[start] = '0';
 
     while (pq.size())
     {
         char cur = pq.top().first; pq.pop();
 
-        if (visited[cur]) continue;
-        visited[cur] = true;
-
         if (cur == target)
         {
             cout << "Found\n";
-            string path = getPath(start, target, parent);
-            cout << path << endl;
+            getPath(start, target, parent);
             return 0;
         }
 
-        vector<node> next_nodes;
         for (auto &next : adj[cur])
         {
-            if (!visited[next])
+            if (visited.find(next) == visited.end())
             {
-                next_nodes.push_back({next, heuristic[next]});
+                visited[next] = true;
+                pq.push({next, heuristic[next]});
                 parent[next] = cur;
             }
-        }
-
-        sort(next_nodes.begin(), next_nodes.end(), compare());
-        for (int i = 0; i < min(k, (int)next_nodes.size()); ++i)
-        {
-            pq.push(next_nodes[i]);
         }
     }
     cout << "Not found";
