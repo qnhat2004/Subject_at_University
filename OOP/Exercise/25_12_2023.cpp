@@ -91,7 +91,7 @@ int main()
 	{
 		cout << "\n----------------------\n";
 		cout << "Nhap thong tin sinh vien thu " << i + 1 << ":" << endl;
-		(temp+i).input();
+		(temp+i)->input();
 		cin.ignore();
 		temp = temp + i;
 	}
