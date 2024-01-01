@@ -16,14 +16,11 @@
        - Nhánh cận (Branch And Bound)
    - Các kỹ thuật tìm kiếm cục bộ:
        - Tìm kiếm leo đồi - Hill CLimbing
-       - Gradient
-       - Mô phỏng luyện kim
-   - Tìm kiếm bắt chước sự tiến hóa: thuật toán di truyền
    #### - Tìm kiếm có đối thủ
    - Thuật toán Min-max(Mini-max)
    - Cắt tỉa Alpha-Beta
 
-
+<br/>
 
 ![image](https://github.com/qnhat2004/Subject_at_University/assets/126136518/34b6e7c5-89cc-41e3-b321-4897bbf02261)
 
