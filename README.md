@@ -10,8 +10,8 @@ Code respository: Kho lưu trữ code & hướng dẫn chi tiết các môn họ
         
 ## 🧠 Cấu trúc dữ liệu và thuật toán - [DSA](https://github.com/qnhat2004/Subject_at_University/tree/main/DSA) (Data Structures and Algorithms)
   + Cấu trúc dữ liệu
-    + Hàng đợi ưu tiên - Priority queue
-    + Thuật toán
+  + Thuật toán
+  + Các bài tập mình đã làm
 
 ### Các lỗi phổ biến thường gặp khi làm bài: Vào phần [Issues](https://github.com/qnhat2004/Subject_at_University/issues), mình có note lại các lỗi mình gặp khi làm và phải tốn nhiều thời gian để tìm ra lý do 🤣
 
