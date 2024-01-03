@@ -19,7 +19,7 @@ class Date
 
         friend ostream& operator << (ostream &out, Date &date)
         {
-            cout << date.day << '/' << date.month << '/' << date.year << endl;
+            cout << date.day << '/' << date.month << '/' << date.year;
             return out;
         }
 };
@@ -179,8 +179,8 @@ void driver()
 {
     cout << "------------------MENU------------------\n";
     cout << "Ban co muon tiep tuc chuong trinh?\n";
-    cout << "1. Tiep tuc chuong trinh\n";
-    cout << "2. Thoat chuong trinh\n";
+    cout << "y/ Tiep tuc chuong trinh\n";
+    cout << "n/ Thoat chuong trinh\n";
 }
 
 int main()
@@ -233,16 +233,22 @@ int main()
                     if (list[i]->toString() == "Computer") // Computer
                     {
                         Computer *pc = (Computer*) list[i];
-                        cout << "\n-----------------------------------\n";
-                        cout << "Thong tin Computer thu " << i + 1 << endl;
-                        cout << pc[i];
+                        for (int j = i; j < i + 5, j < count; ++j, ++i)
+                        {
+                            cout << "\n-----------------------------------\n";
+                            cout << "Thong tin Computer thu " << i + 1 << endl;
+                            cout << pc[j];
+                        }
                     }
                     else // Monitor
                     {
                         Monitor *monitor = (Monitor*) list[i];
-                        cout << "\n-----------------------------------\n";
-                        cout << "Thong tin Monitor thu " << i + 1 << endl;
-                        cout << monitor[i];
+                        for (int j = i; j < i + 5, j < count; ++j, ++i)
+                        {
+                            cout << "\n-----------------------------------\n";
+                            cout << "Thong tin Monitor thu " << i + 1 << endl;
+                            cout << monitor[j];
+                        }
                     }
                 }
                 break;
@@ -261,8 +267,10 @@ int main()
         }
 
         driver();
-        cout << "Nhap lua chon: "; cin >> choice;
-        if (choice == 2) break;
+        char c;
+        cout << "Nhap lua chon: "; cin >> c;
+        if (c == 'n') break;
+        system("cls");
     }
 
     // Giai phong vung nho
