@@ -1,44 +1,38 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-/* Conversion Operator - toán tử chuyển đổi: đôi khi, cần phải chuyển đổi 1 loại dữ liệu này sang loại dữ liệu khác 1 cách ngầm định
-    -> Cần đến toán tử chuyển đổi
-*/
-
-class Complex // Số phức: số có dạng a + bi, trong đó a = real là phần thực, bi = imaginary là phần ảo
+// new class
+class interger
 {
-    double real;
-    double imag;
-
     public:
-        Complex(double r = 0.0, double i = 0.0) : real(r), imag(i) {}
+        int x;
+    public:
+        // constructor
+        interger(int x = 0) : x(x)
+        {
+            cout << "constructor called" << endl;
+        }
 
-        // magnitude - độ lớn, usual function style (kiểu hàm thông thường)
-        double mag() { return getMag(); }
-
-        // magnitude: conversion operator
-        operator double()
+        operator string() 
         {
             cout << "Conversion operator called\n";
-            return getMag();
+            return std::to_string(x);
         }
 
-    private:
-        double getMag() // Độ lớn của số phức: |z| = sqrt(a^2 + b^2)
-        {
-            return sqrt(real * real + imag * imag);
-        }
+        // friend ostream& operator<<(ostream& os, const interger& obj)
+        // {
+        //     os << obj.x;
+        //     return os;
+        // }
 };
 
 int main()
 {
-    // a complex object
-    Complex com(3.0, 4.0);
+    interger obj(3); // Constructor called
 
-    // print magnitude
-    cout << com.mag() << endl;
+    string str = obj; // Đầu tiên chuyển đổi obj từ kiểu interger sang kiểu string dựa vào toán tử chuyển đổi do người dùng định nghĩa, sau đó gán cho biến str
 
-    // use conversion operator to convert Complex to double
-    // Toán tử chuyển đổi được gọi trước khi so sánh với 1 số kiểu double hoặc khi in đối tượng ra màn hình
-    cout << com << endl;
+    cout << str << endl;
+
+    // cout << obj.operator string() << endl;  
 }
