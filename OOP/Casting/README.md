@@ -30,3 +30,12 @@ int main() {
     cout << "Chuyen doi thanh cong\n";
 }
 ```
+> [!IMPORTANT]
+> dynamic_cast trả về null khi cố gắng chuyển đổi con trỏ (hoặc tham chiếu) của lớp cơ sở thành con trỏ (hoặc tham chiếu) của lớp dẫn xuất nhưng đối tượng mà con trỏ (hoặc tham chiếu) đang trỏ tới không phải là 1 thể hiện của lớp dẫn xuất.
+```cpp
+Base *baseptr1 = new Base();
+Derived *d1 = dynamic_cast<Derived*>(baseptr1); // d1 sẽ bằng null
+
+Base *baseptr2 = new Derived();
+Derived *d2 = dynamic_cast<Derived*>(baseptr2); // d2 sẽ khác null
+```
