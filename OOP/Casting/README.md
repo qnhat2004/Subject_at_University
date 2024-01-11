@@ -38,3 +38,5 @@ Derived *d1 = dynamic_cast<Derived*>(baseptr1); // d1 sẽ bằng null vì cố 
 Base *baseptr2 = new Derived(); // *baseptr đang chứa địa chỉ 1 đối tượng có kiểu dữ liệu Derived
 Derived *d2 = dynamic_cast<Derived*>(baseptr2); // d2 sẽ khác null vì ép kiểu giữa 2 loại dữ liệu cùng kiểu
 ```
+> [!NOTE]
+> Nếu ta chắc chắn không chuyển đổi(cast) sai đối tượng thì nên sử dụng **static_cast** thay vì **dynamic_cast**
