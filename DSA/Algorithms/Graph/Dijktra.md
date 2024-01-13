@@ -14,9 +14,9 @@ struct Edge
 {
     int v;
     ll w;
-}
+};
 
-void Dijktra(int n, int s, vector<vector<Edge>> E, vector<vector<ll>> &D, vector<int> &trace)
+void Dijktra(int n, int s, vector<vector<Edge>> E, vector<ll> &D, vector<int> &trace)
 {
     D.resize(n, INT_MAX);
     trace.resize(n, -1);
