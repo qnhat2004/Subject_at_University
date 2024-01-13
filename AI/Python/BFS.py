@@ -32,7 +32,7 @@ def BFS_using_Deque(adj, start_node, end_node): # Tối ưu hơn vì popleft() c
             return parent
         for neighbor in adj[cur_node]:
             if neighbor not in visited:
-                visited.append(neighbor)
+                visited.add(neighbor)
                 queue.append(neighbor)
                 parent[neighbor] = cur_node
     return None
@@ -56,15 +56,17 @@ if __name__ == "__main__":
         "F": ["C", "E"]
     }
     start_node = "A"
-    end_node = "G"
+    end_node = "F"
 
     try:
         # parent = BFS_using_List(adj, start_node, end_node)
         parent = BFS_using_Deque(adj, start_node, end_node)
-        show_path(parent, start_node, end_node)
+        if parent:
+            show_path(parent, start_node, end_node)
+        else:
+            print(f"No path from {start_node} to {end_node}")
     except KeyError as e: # Đối tượng ngoại lệ được gán vào biến e
         print(f"Error: Node {e} is not in graph")
     except Exception as e: # Nếu ngoại lệ không phải KeyError, nó vẫn được gán vào biến e sau đó in ra lỗi tổng quát
         print("Exception:", e)
-    else:
-        print(f"No path from {start_node} to {end_node}")
+        
