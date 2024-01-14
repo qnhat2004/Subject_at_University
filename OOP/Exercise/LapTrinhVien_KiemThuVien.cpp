@@ -107,7 +107,7 @@ class KiemThuVien : public NhanVien
 		friend istream& operator >> (istream &in, KiemThuVien &ktv)
 		{
 			ktv.NhanVien::input(); cin.ignore();
-			cout << "Nhap chuyen mon: "; getline(cin, ktv.chuyenmon);
+			cout << "Nhap chuyen mon (kiem thu giao dien/Kiem thu chuc nang): "; getline(cin, ktv.chuyenmon);
 			return in;
 		}
 		
@@ -119,7 +119,7 @@ class KiemThuVien : public NhanVien
 		}
 };
 
-void Search_By_Name(const vector<NhanVien*> &dsnv, string name)
+void Search_By_Name(const vector<NhanVien*> &dsnv, const string &name)
 {
 	for (int i = 0; i < dsnv.size(); ++i)
 	{
@@ -131,6 +131,14 @@ void Search_By_Name(const vector<NhanVien*> &dsnv, string name)
 		}
 	}
 	cout << "Khong co ten trong danh sach.\n";
+}
+
+void print(NhanVien *nv) // Kiem tra con tro thuoc loai nao
+{
+	if (dynamic_cast<LapTrinhVien*>(nv)) // Lap trinh vien
+		cout << *(dynamic_cast<LapTrinhVien*>(nv));
+	else
+		cout << *(dynamic_cast<KiemThuVien*>(nv));
 }
 
 int main(){
@@ -156,21 +164,26 @@ int main(){
 				cout << "So lieu khong hop le. Moi nhap lai!\n";
 		} while (choice != 1 && choice != 2);
 		
-		if (choice == 1) dsnv[i] = new LapTrinhVien();
-		else dsnv[i] = new KiemThuVien();	
-		cin >> *dsnv[i];
+		if (choice == 1){
+			dsnv[i] = new LapTrinhVien();
+			cin >> *(dynamic_cast<LapTrinhVien*>(dsnv[i]));
+		} 
+		else {
+			dsnv[i] = new KiemThuVien();
+			cin >> *(dynamic_cast<KiemThuVien*>(dsnv[i]));
+		}	
 	}
 	
 	for (int i = 0; i < n; ++i)
 	{
 		cout << "\n------------------\n";
 		cout << "Thong tin nhan vien thu " << i+1 << endl;
-		cout << *dsnv[i];
+		print(dsnv[i]);
 	}
 	
 	cout << "\n------------------\n";
 	cout << "Nhap ho ten nhan vien muon tim kiem: ";
-	string name; getline(cin, name);
+	string name; cin.ignore(); getline(cin, name);
 	Search_By_Name(dsnv, name);
 	
 	for (int i = 0; i < n; ++i)
