@@ -119,26 +119,29 @@ class KiemThuVien : public NhanVien
 		}
 };
 
+void print(NhanVien *nv) // Kiem tra con tro thuoc loai nao
+{
+	if (dynamic_cast<LapTrinhVien*>(nv)) // nv != nullptr -> Lap trinh vien
+		cout << *(dynamic_cast<LapTrinhVien*>(nv));
+	else
+		cout << *(dynamic_cast<KiemThuVien*>(nv));
+}
+
 void Search_By_Name(const vector<NhanVien*> &dsnv, const string &name)
 {
-	for (int i = 0; i < dsnv.size(); ++i)
+	int Size = dsnv.size();
+	int count = 0;
+	for (int i = 0; i < Size; ++i)
 	{
 		if (name == dsnv[i]->getName())
 		{
 			cout << "Thong tin cua " << name << endl;
-			cout << *dsnv[i];
-			return;
+			print(dsnv[i]);
+			count++;
 		}
 	}
-	cout << "Khong co ten trong danh sach.\n";
-}
-
-void print(NhanVien *nv) // Kiem tra con tro thuoc loai nao
-{
-	if (dynamic_cast<LapTrinhVien*>(nv)) // Lap trinh vien
-		cout << *(dynamic_cast<LapTrinhVien*>(nv));
-	else
-		cout << *(dynamic_cast<KiemThuVien*>(nv));
+	if (count == 0)
+		cout << "Khong co ten trong danh sach.\n";
 }
 
 int main(){
@@ -183,7 +186,7 @@ int main(){
 	
 	cout << "\n------------------\n";
 	cout << "Nhap ho ten nhan vien muon tim kiem: ";
-	string name; cin.ignore(); getline(cin, name);
+	string name; getline(cin, name);
 	Search_By_Name(dsnv, name);
 	
 	for (int i = 0; i < n; ++i)
