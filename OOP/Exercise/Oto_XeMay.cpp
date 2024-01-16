@@ -166,6 +166,34 @@ void xuat(PhuongTien *pt)
 	}
 }
 
+void find_minSpeed(PhuongTien **phuongtien, const int n)
+{
+	double min_speed = INT_MAX;
+	PhuongTien *temp;
+	for (int i = 0; i < n; ++i)
+	{
+		Oto *oto = dynamic_cast<Oto*>(phuongtien[i]);
+		if (oto)
+		{
+			if (oto->maxSpeed() < min_speed)
+			{
+				temp = phuongtien[i];
+				min_speed = oto->maxSpeed();
+			}
+		}
+		else
+		{
+			XeMay *xemay = dynamic_cast<XeMay*>(phuongtien[i]);
+			if (xemay->maxSpeed() < min_speed)
+			{
+				temp = phuongtien[i];
+				min_speed = xemay->maxSpeed();
+			}
+		}
+	}
+	xuat(temp);
+}
+
 int main()
 {
 	int n;
@@ -187,6 +215,9 @@ int main()
 		cout << "Thong tin phuong tien thu " << i+1 << ": ";
 		xuat(phuongtien[i]);
 	}
+	
+	cout << "\nPhuong tien co toc do toi da nho nhat la: ";
+	find_minSpeed(phuongtien, n);
 	
 	for (int i = 0; i < n; ++i)
 		delete phuongtien[i];
