@@ -65,7 +65,7 @@ class Hoaqua
 			cout << "Nhap id: "; getline(cin, id);
 			cout << "Nhap ten: "; getline(cin, name);
 			cout << "Nhap xuat xu: "; getline(cin, xuatxu);
-			cout << "Nhap gia: "; cin >> gia; setGia(gia);
+			cout << "Nhap gia: "; cin >> gia;
 		}
 		
 		virtual void output() {
@@ -120,8 +120,7 @@ class Duahau : public Hoaqua
 		// Input and output
 		void input() override {
 			Hoaqua::input();
-			cout << "Nhap khoi luong: "; cin >> kl;
-			setKl(kl);
+			cout << "Nhap khoi luong: "; cin >> kl; setKl(kl);
 		}
 		
 		void output() override {
