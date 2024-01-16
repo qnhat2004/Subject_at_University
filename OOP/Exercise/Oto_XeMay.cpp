@@ -3,14 +3,14 @@ using namespace std;
 
 class PhuongTien
 {
-	double tocdo;
+	float tocdo;
 	
 	public:
 		// Constructor
 		PhuongTien() {
 			tocdo = 0;
 		}	
-		PhuongTien(double tocdo) {
+		PhuongTien(float tocdo) {
 			this->tocdo = tocdo;
 		}
 		
@@ -18,9 +18,17 @@ class PhuongTien
 		virtual ~PhuongTien() {}
 		
 		// Abstract - Pure method
-		virtual double maxSpeed() = 0;
+		virtual float maxSpeed() = 0;
 		
 		// input and output
+		virtual void input() {
+			cin >> *this;
+		}
+		
+		virtual void output() {
+			cout << *this;
+		}
+		
 		friend istream& operator >> (istream &in, PhuongTien &pt)
 		{
 			cout << "Nhap toc do: "; cin >> pt.tocdo;
@@ -33,22 +41,29 @@ class PhuongTien
 			return out;
 		}
 		
-		// Operator overloading
-		bool operator > (const PhuongTien &other) const
-		{
-			return tocdo > other.tocdo;
+		// Getter
+		float getSpeed() {
+			return tocdo;
 		}
 		
-		// Getter
-		double getSpeed() {
-			return tocdo;
+		// Operator overloading
+		bool operator > (float &f) {
+			return maxSpeed() > f;
+		}
+		
+		bool operator > (PhuongTien &other) {
+			return maxSpeed() > other.maxSpeed();
+		}
+		
+		virtual bool operator == (float &f) {
+			return maxSpeed() == f;
 		}
 };
 
 class Oto : public PhuongTien
 {
 	string color;
-	double heso_tocdo; // 0.0 -> 1.0
+	float heso_tocdo; // 0.0 -> 1.0
 	
 	public:
 		// Constructor
@@ -57,26 +72,27 @@ class Oto : public PhuongTien
 			heso_tocdo = 0;
 		}
 		
-		Oto(double tocdo, string color, double heso_tocdo) : PhuongTien(tocdo) {
+		Oto(float tocdo, string color, float heso_tocdo) : PhuongTien(tocdo) {
 			this->color = color;
 			this->heso_tocdo = heso_tocdo;
 		}
 		
 		// Override
-		double maxSpeed() override
+		float maxSpeed() override
 		{
 			return this->getSpeed() * heso_tocdo;
 		}
 		
 		// input and output
-		void input() {
-			cin >> *(dynamic_cast<PhuongTien*>(this)); cin.ignore();
+		void input() override {
+			PhuongTien::input(); cin.ignore();
 			cout << "Nhap mau sac: "; getline(cin, color);
 			cout << "Nhap he so toc do (0.0 -> 1.0): "; cin >> heso_tocdo;
 		}
 		
-		void output() {
-			cout << *(dynamic_cast<PhuongTien*>(this));
+		void output() override {
+			cout << "Kieu phuong tien: O to\t";
+			PhuongTien::output();
 			cout << "Mau sac: " << color << "\t";
 			cout << "He so toc do: " << heso_tocdo << "\t";
 			cout << "Toc do toi da: " << maxSpeed() << endl;
@@ -93,7 +109,7 @@ class XeMay : public PhuongTien
 			nam_sx = 0;
 		}
 		
-		XeMay(double tocdo, int nam_sx) : PhuongTien(tocdo) {
+		XeMay(float tocdo, int nam_sx) : PhuongTien(tocdo) {
 			this->nam_sx = nam_sx;
 		} 
 		
@@ -101,20 +117,22 @@ class XeMay : public PhuongTien
 		~XeMay() {}
 		
 		// Override
-		double maxSpeed() override
+		float maxSpeed() override
 		{
 			return this->getSpeed() * 0.5;
 		}
 		
 		// input and output
 		void input() {
-			cin >> *(dynamic_cast<XeMay*>(this));
+			PhuongTien::input();
 			cout << "Nhap nam san xuat: "; cin >> nam_sx;
 		}
 		
 		void output() {
-			cout << *(dynamic_cast<XeMay*>(this)) << "\t";
-			cout << "Nam san xuat: " << nam_sx << endl;
+			cout << "Kieu phuong tien: Xe may\t";
+			PhuongTien::output();
+			cout << "Nam san xuat: " << nam_sx << "\t";
+			cout << "Toc do toi da: " << maxSpeed() << endl;
 		}
 };
 
@@ -141,62 +159,27 @@ void nhap(PhuongTien* &pt) {
 	if (choice == 1)
 	{
 		pt = new Oto();
-		dynamic_cast<Oto*>(pt)->input();
+		pt->input();
 	}
 	
 	// Xe may
 	else
 	{
 		pt = new XeMay();
-		dynamic_cast<XeMay*>(pt)->input();
-	}
-}
-
-void xuat(PhuongTien *pt)
-{
-	if (dynamic_cast<Oto*>(pt)) // != nullptr -> O to
-	{
-		Oto *oto = dynamic_cast<Oto*>(pt);
-		oto->output();
-	}
-	else
-	{
-		XeMay *xemay = dynamic_cast<XeMay*>(pt);
-		xemay->output();
+		pt->input();
 	}
 }
 
 void find_minSpeed(PhuongTien **phuongtien, const int n)
 {
-	double min_speed = INT_MAX;
-	PhuongTien *temp;
-	string type;
+	float min_speed = FLT_MAX;
+	for (int i = 0; i < n; ++i)
+		if (!(*phuongtien[i] > min_speed))
+			min_speed = phuongtien[i]->maxSpeed();
 	
 	for (int i = 0; i < n; ++i)
-	{
-		Oto *oto = dynamic_cast<Oto*>(phuongtien[i]);
-		if (oto)
-		{
-			if (oto->maxSpeed() < min_speed)
-			{
-				temp = phuongtien[i];
-				min_speed = oto->maxSpeed();
-				type = "O to";
-			}
-		}
-		else
-		{
-			XeMay *xemay = dynamic_cast<XeMay*>(phuongtien[i]);
-			if (xemay->maxSpeed() < min_speed)
-			{
-				temp = phuongtien[i];
-				min_speed = xemay->maxSpeed();
-				type = "Xe may";
-			}
-		}
-	}
-	cout << "Loai phuong tien: " << type << "\t";
-	xuat(temp);
+		if (*phuongtien[i] == min_speed)
+			phuongtien[i]->output();
 }
 
 int main()
@@ -218,10 +201,10 @@ int main()
 	for (int i = 0; i < n; ++i)
 	{
 		cout << "Thong tin phuong tien thu " << i+1 << ": ";
-		xuat(phuongtien[i]);
+		phuongtien[i]->output();
 	}
 	
-	cout << "\nPhuong tien co toc do toi da nho nhat la: ";
+	cout << "\nNhung phuong tien co toc do toi da nho nhat:\n";
 	find_minSpeed(phuongtien, n);
 	
 	for (int i = 0; i < n; ++i)
