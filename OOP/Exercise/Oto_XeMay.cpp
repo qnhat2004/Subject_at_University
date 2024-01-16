@@ -84,10 +84,19 @@ class Oto : public PhuongTien
 		}
 		
 		// input and output
+		void nhap_hesotocdo(float &heso) {
+			do
+			{
+				cout << "Nhap he so toc do (0.0 -> 1.0): "; cin >> heso;
+				if (heso < 0 || heso > 1)
+					cout << "So lieu khong hop le. Moi nhap lai!";
+			} while (heso < 0 || heso > 1);
+		}
+		
 		void input() override {
 			PhuongTien::input(); cin.ignore();
 			cout << "Nhap mau sac: "; getline(cin, color);
-			cout << "Nhap he so toc do (0.0 -> 1.0): "; cin >> heso_tocdo;
+			nhap_hesotocdo(heso_tocdo);
 		}
 		
 		void output() override {
@@ -156,18 +165,11 @@ void nhap(PhuongTien* &pt) {
 	} while (choice != 1 && choice != 2);
 	
 	// O to
-	if (choice == 1)
-	{
-		pt = new Oto();
-		pt->input();
-	}
-	
+	if (choice == 1) pt = new Oto();
 	// Xe may
-	else
-	{
-		pt = new XeMay();
-		pt->input();
-	}
+	else pt = new XeMay();
+
+	pt->input();
 }
 
 void find_minSpeed(PhuongTien **phuongtien, const int n)
