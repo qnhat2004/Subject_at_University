@@ -61,20 +61,18 @@ class Hoaqua
 		}
 		
 		// Input and output
-		friend istream& operator >> (istream &in, Hoaqua &h) {
-			cout << "Nhap id: "; getline(cin, h.id);
-			cout << "Nhap ten: "; getline(cin, h.name);
-			cout << "Nhap xuat xu: "; getline(cin, h.xuatxu);
-			cout << "Nhap gia: "; cin >> h.giathanhtien;
-			return in;
+		virtual void input() {
+			cout << "Nhap id: "; getline(cin, id);
+			cout << "Nhap ten: "; getline(cin, name);
+			cout << "Nhap xuat xu: "; getline(cin, xuatxu);
+			cout << "Nhap gia: "; cin >> giathanhtien;
 		}
 		
-		friend ostream& operator << (ostream &out, Hoaqua &h) {
-			cout << "Id: " << h.id << "\t";
-			cout << "Ten hoa qua: " << h.name << "\t";
-			cout << "Xuat xu: " << h.xuatxu << "\t";
-			cout << "Gia: " << h.giathanhtien << "\t";
-			return out;
+		virtual void output() {
+			cout << "Id: " << id << "\t";
+			cout << "Ten hoa qua: " << name << "\t";
+			cout << "Xuat xu: " << xuatxu << "\t";
+			cout << "Gia: " << giathanhtien << "\t";
 		}
 		
 		// Operator overloading
@@ -127,16 +125,15 @@ class Duahau : public Hoaqua
 		}
 		
 		// Input and output
-		friend istream& operator >> (istream &in, Duahau &d) {
-			cin >> dcast<Hoaqua&>(d);
-			cout << "Nhap khoi luong: "; cin >> d.kl;
-			return in;
+		void input() override {
+			Hoaqua::input();
+			cout << "Nhap khoi luong: "; cin >> kl;
 		}
 		
-		friend ostream& operator << (ostream &out, Duahau &d) {
-			cout << dcast<Hoaqua&>(d);
-			cout << "Khoi luong: " << d.kl << "\t";
-			cout << "Gia thanh tien " << d.getGiathanhtien() << endl;
+		void output() override {
+			Hoaqua::output();
+			cout << "Khoi luong: " << kl << "\t";
+			cout << "Gia thanh tien " << getGiathanhtien() << endl;
 		}
 };
 
@@ -179,17 +176,15 @@ class Quadua : public Hoaqua
 		}
 		
 		// Input and output
-		friend istream& operator >> (istream &in, Quadua &q) {
-			cin >> dcast<Hoaqua&>(q);
-			cout << "Nhap so luong: "; cin >> q.soluong;
-			return in;
+		void input() override {
+			Hoaqua::input();
+			cout << "Nhap so luong: "; cin >> soluong;
 		}
 		
-		friend ostream& operator << (ostream &out, Quadua &q) {
-			cout << dcast<Hoaqua&>(q);
-			cout << "So luong: " << q.soluong << "\t";
-			cout << "Gia thanh tien: " << q.getGiathanhtien() << endl;
-			return out;
+		void output() override {
+			Hoaqua::output();
+			cout << "So luong: " << soluong << "\t";
+			cout << "Gia thanh tien: " << getGiathanhtien() << endl;
 		}
 };
 
@@ -213,30 +208,16 @@ void nhap(Hoaqua* &h)
 	
 	cin.ignore();
 	
-	if(choice == 1)
-	{
-		h = new Duahau();
-		cin >> *(dcast<Duahau*>(h));
-		return;
-	}
+	if(choice == 1) h = new Duahau();
+	else h = new Quadua();
 	
-	h = new Quadua();
-	cin >> *(dcast<Quadua*>(h));
-}
-
-void xuat(Hoaqua *h)
-{
-	if (dcast<Duahau*>(h))
-		cout << *(dcast<Duahau*>(h));
-	else
-		cout << *(dcast<Quadua*>(h));
+	h->input();
 }
 
 double total(vector<Hoaqua*> h, int n)
 {
-	if (n == 0) return 0;
-	double sum = h[0]->getGiathanhtien();
-	for (int i = 1; i < n; ++i)
+	double sum = 0;
+	for (int i = 0; i < n; ++i)
 		sum = *(h[i]) + sum;
 	return sum;
 }
@@ -252,13 +233,12 @@ int main()
 	{
 		cout << "\n-------------------------\n";
 		cout << "Nhap thong tin qua thu " << i+1 << endl;
-//		cin.ignore();
 		nhap(hoaqua[i]);
 	}
 	
 	cout << "\n-------------------------\n";
 	for (int i = 0; i < n; ++i)
-		xuat(hoaqua[i]);
+		hoaqua[i]->output();
 	
 	cout << "\nTong gia tri don hang: " << total(hoaqua, n);
 	
