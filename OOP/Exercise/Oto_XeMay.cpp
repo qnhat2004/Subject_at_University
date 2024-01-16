@@ -76,7 +76,7 @@ class Oto : public PhuongTien
 		}
 		
 		void output() {
-			cout << *(dynamic_cast<PhuongTien*>(this)) << "\t";
+			cout << *(dynamic_cast<PhuongTien*>(this));
 			cout << "Mau sac: " << color << "\t";
 			cout << "He so toc do: " << heso_tocdo << "\t";
 			cout << "Toc do toi da: " << maxSpeed() << endl;
@@ -128,7 +128,7 @@ void input_amount(int &n, int Min = INT_MIN, int Max = INT_MAX)
 	} while (n <= Min || n >= Max);
 }
 
-void nhap(PhuongTien *pt) {
+void nhap(PhuongTien* &pt) {
 	int choice;
 	do
 	{
@@ -170,6 +170,8 @@ void find_minSpeed(PhuongTien **phuongtien, const int n)
 {
 	double min_speed = INT_MAX;
 	PhuongTien *temp;
+	string type;
+	
 	for (int i = 0; i < n; ++i)
 	{
 		Oto *oto = dynamic_cast<Oto*>(phuongtien[i]);
@@ -179,6 +181,7 @@ void find_minSpeed(PhuongTien **phuongtien, const int n)
 			{
 				temp = phuongtien[i];
 				min_speed = oto->maxSpeed();
+				type = "O to";
 			}
 		}
 		else
@@ -188,9 +191,11 @@ void find_minSpeed(PhuongTien **phuongtien, const int n)
 			{
 				temp = phuongtien[i];
 				min_speed = xemay->maxSpeed();
+				type = "Xe may";
 			}
 		}
 	}
+	cout << "Loai phuong tien: " << type << "\t";
 	xuat(temp);
 }
 
