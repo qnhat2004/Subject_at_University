@@ -44,7 +44,7 @@ class Hoaqua
 			return xuatxu;
 		}
 		
-		virtual void setGiathanhtien(double giathanhtien) {
+		void setGiathanhtien(double giathanhtien) {
 			this->giathanhtien = giathanhtien;
 		}
 		
@@ -65,14 +65,14 @@ class Hoaqua
 			cout << "Nhap id: "; getline(cin, id);
 			cout << "Nhap ten: "; getline(cin, name);
 			cout << "Nhap xuat xu: "; getline(cin, xuatxu);
-			cout << "Nhap gia: "; cin >> giathanhtien;
+			cout << "Nhap gia: "; cin >> gia; setGia(gia);
 		}
 		
 		virtual void output() {
 			cout << "Id: " << id << "\t";
 			cout << "Ten hoa qua: " << name << "\t";
 			cout << "Xuat xu: " << xuatxu << "\t";
-			cout << "Gia: " << giathanhtien << "\t";
+			cout << "Gia: " << gia << "\t";
 		}
 		
 		// Operator overloading
@@ -110,13 +110,6 @@ class Duahau : public Hoaqua
 			return kl;
 		}
 		
-		void setGiathanhtien(double giathanhtien) override
-		{
-			this->Hoaqua::setGiathanhtien(giathanhtien);
-			double giamoi = (double) giathanhtien / kl;
-			this->Hoaqua::setGia(giamoi);
-		}
-		
 		void setGia(double gia) override
 		{
 			this->Hoaqua::setGia(gia);
@@ -128,6 +121,7 @@ class Duahau : public Hoaqua
 		void input() override {
 			Hoaqua::input();
 			cout << "Nhap khoi luong: "; cin >> kl;
+			setKl(kl);
 		}
 		
 		void output() override {
@@ -168,17 +162,10 @@ class Quadua : public Hoaqua
 			Hoaqua::setGiathanhtien(giamoi);
 		}
 		
-		void setGiathanhtien(double giathanhtien) override
-		{
-			Hoaqua::setGiathanhtien(giathanhtien);
-			double giamoi = (double) giathanhtien / soluong;
-			Hoaqua::setGia(giamoi);
-		}
-		
 		// Input and output
 		void input() override {
 			Hoaqua::input();
-			cout << "Nhap so luong: "; cin >> soluong;
+			cout << "Nhap so luong: "; cin >> soluong; setSoluong(soluong);
 		}
 		
 		void output() override {
