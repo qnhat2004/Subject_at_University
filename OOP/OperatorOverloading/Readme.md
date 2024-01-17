@@ -7,7 +7,9 @@
 **Lý do phải nạp chồng toán tử**: các toán tử thông thường được sử dụng với các kiểu dữ liệu nguyên thủy được định nghĩa sẵn (int, double, float,...) nhưng ta muốn sử dụng toán tử giữa các kiểu dữ liệu tự định nghĩa (class, struct) thì ta phải định nghĩa thêm cho toán tử ấy. Nạp chồng không làm mất đi ý nghĩa ban đầu của toán tử mà bổ sung thêm ý nghĩa mới với những ý nghĩa ban đầu.
 
 ## Cú pháp nạp chồng toán tử:
-    <kiểu trả về> operator <danh sách đối số> { }
+```cpp 
+<kiểu trả về> operator <danh sách đối số> { }
+```
 
 ## Các hàm nạp chồng:
 - toán tử **cộng, trừ, nhân, chia**: [here](https://github.com/qnhat2004/Subject_at_University/blob/main/OOP/OperatorOverloading/CongTruNhanChia.cpp)
