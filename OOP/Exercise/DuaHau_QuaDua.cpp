@@ -202,10 +202,13 @@ void nhap(Hoaqua* &h)
 
 double total(vector<Hoaqua*> h, int n)
 {
-	double sum = 0;
+	Hoaqua temp; 
 	for (int i = 0; i < n; ++i)
-		sum = *(h[i]) + sum;
-	return sum;
+	{
+		double sum = temp + *(h[i]);
+		temp.setGiathanhtien(sum);
+	}
+	return temp.getGiathanhtien();
 }
 
 int main()
