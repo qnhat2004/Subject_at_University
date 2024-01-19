@@ -46,18 +46,19 @@ class Graph:
                     h += 1
                     self.parent[u] = cur            
         return False
-    
+
+    def Input(self): # Nếu không có self -> phương thức tĩnh
+        n, m = map(int, input("Nhập số đỉnh và số cạnh: ").split())
+        for i in range(m):
+            u, v = input(f"Nhập cạnh thứ {i+1}: ").split()
+            g.addEdge(u, v)
+        start, end = input("Nhập đỉnh bắt đầu và đỉnh đích: ").split()
+        limited = int(input("Nhập độ sâu giới hạn: "))
+        return start, end, limited
+        
 if __name__ == "__main__":
     g = Graph()
-
-    n, m = map(int, input("Nhập số đỉnh và số cạnh: ").split())
-    for i in range(m):
-        u, v = input(f"Nhập cạnh thứ {i+1}: ").split()
-        g.addEdge(u, v)
-    
-    start, end = input("Nhập đỉnh bắt đầu và đỉnh đích: ").split()
-    limited = int(input("Nhập độ sâu giới hạn: "))
-
+    start, end, limited = g.Input()
     if g.Depth_Limited_Search(start, end, limited):
         print("\nTìm thấy đường đi")
         g.show_path(g.parent, start, end)
