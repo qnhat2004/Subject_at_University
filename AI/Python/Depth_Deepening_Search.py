@@ -1,5 +1,6 @@
 '''
-* Hạn chế của thuật toán tìm kiếm sâu giới hạn (DLS):
+* Hạn chế của thuật toán tìm kiếm sâu giới hạn (hay còn gọi là thuật toán tìm kiếm sâu dần, DLS):
+- Tăng dần độ sâu rồi thực hiện DLS(0), DLS(1), ... , DLS(Limited)
 - Nếu nút cần tìm nằm ở độ sâu lớn hơn độ sâu giới hạn -> không tìm được
 -> Cải tiến bằng thuật toán tìm kiếm sâu dần (Depth Deepening Search - DDS)
 * Nhược điểm của thuật:
