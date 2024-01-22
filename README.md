@@ -13,6 +13,9 @@
   - Thuật toán
   - Các bài tập mình đã làm
 
+## 🖥️ Lập trình window - [C#](https://github.com/qnhat2004/Subject_at_University/tree/main/C%23)
+  - Các Project mình đã làm
+
 ## 👀 Những kiến thức ngoài lề mình bắt gặp trong quá trình làm bài tập và nó có thể rất hữu ích với cậu: Vào [Issues](https://github.com/qnhat2004/Subject_at_University/issues)
 
 > [!NOTE]
