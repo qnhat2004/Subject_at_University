@@ -16,6 +16,6 @@
 ## 👀 Những kiến thức ngoài lề mình bắt gặp trong quá trình làm bài tập và nó có thể rất hữu ích với cậu: Vào [Issues](https://github.com/qnhat2004/Subject_at_University/issues)
 
 > [!NOTE]
-> 🤔 Nếu có câu hỏi cần được giải đáp, bạn có thể truy cập vào phần [Discussion](https://github.com/qnhat2004/Subject_at_University/discussions) và chọn **New Discussion** hoặc chọn cuộc trò chuyện đã có. Mình rất vui khi giải đáp các thắc mắc của các bạn 😊😊
+> 🤔 Nếu có câu hỏi cần được giải đáp, bạn có thể truy cập vào phần [Discussion](https://github.com/qnhat2004/Subject_at_University/discussions) và chọn **New Discussion** hoặc vào phần [Issues](https://github.com/qnhat2004/Subject_at_University/issues) và chọn New Issues. Mình rất vui khi giải đáp các thắc mắc của các bạn 😊😊
 
 ![Repo Card](https://github-readme-stats.vercel.app/api/pin/?username=qnhat2004&repo=Subject_at_University&theme=ambient_gradient)
