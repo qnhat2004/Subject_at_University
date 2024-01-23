@@ -24,3 +24,4 @@ public partial class Product
     }   
 }
 ```
+Trong ví dụ trên, lớp **Product** được chia thành 2 file mã nguồn khác nhau nhưng khi biên dịch nó sẽ được hợp thành 1
