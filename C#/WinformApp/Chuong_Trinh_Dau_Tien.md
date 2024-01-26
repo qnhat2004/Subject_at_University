@@ -4,11 +4,11 @@
 ---
 
 ```csharp
-using System;                               // Thư viện 
+using System;   // Sử dụng namespace là System   // Thư viện 
 // using System.Collections.Generic;
 // using System.ComponentModel;            
 // using System.Data;
-// using System.Drawing;                    // Do trong phần này chưa dùng đến các thư viện này nên có thể bỏ nó đi
+// using System.Drawing;                    	// Do trong phần này chưa dùng đến các thư viện này nên có thể bỏ nó đi
 // using System.Linq;
 // using System.Text;
 // using System.Threading.Tasks;
