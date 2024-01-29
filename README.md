@@ -1,10 +1,10 @@
-# Subject at University - Lý thuyết và các ví dụ + bài tập minh họa
+# Subject at University - Tutorial and my experience of coding Subject, and more exercises :>
 
 ## 🤖 Trí tuệ nhân tạo - [AI](https://github.com/qnhat2004/Subject_at_University/tree/main/AI) (Artifical Intelligence)
   - Các thuật toán tìm kiếm
   - Code - ứng dụng thuật toán tìm kiếm để áp dụng vào giải các bài toán và trò chơi thực tế
 
-## 🧛 Nguyên lý lập trình hướng đối tượng - [Principal_OOP](https://github.com/qnhat2004/Subject_at_University/tree/main/OOP) (Object Oriented Programming)
+## 🧑‍🤝‍🧑 Nguyên lý lập trình hướng đối tượng - [Principal_OOP](https://github.com/qnhat2004/Subject_at_University/tree/main/OOP) (Object Oriented Programming)
   - [Code các bài tập](https://github.com/qnhat2004/Subject_at_University/tree/main/OOP/Exercise)
   - Tutorial
         
