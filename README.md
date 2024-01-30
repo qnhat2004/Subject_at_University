@@ -1,4 +1,4 @@
-# Subject at University - Tutorial and my experience of coding Subject, and more exercises :>
+# Subject at University - Tutorial and my experience of programming Subjects, and more exercises :>
 
 ## 🤖 Trí tuệ nhân tạo - [AI](https://github.com/qnhat2004/Subject_at_University/tree/main/AI) (Artifical Intelligence)
   - Các thuật toán tìm kiếm
