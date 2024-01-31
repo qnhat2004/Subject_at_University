@@ -1,6 +1,6 @@
 # readonly and const in C#
 - **readonly**: chỉ thay đổi được giá trị khi khởi tạo (gọi là khởi gán) và trong constructor
-- **const**: chỉ thay đổi được giá trị khi khởi tạo (gọi là khởi gán)
+- **const**: chỉ thay đổi được giá trị khi khởi tạo
 ## readonly và const chỉ dùng để khai báo thuộc tính (property) của class
 
 ```csharp
