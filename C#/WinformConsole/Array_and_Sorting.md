@@ -3,9 +3,9 @@
 ### Khai báo mảng:
 `int[] arr = new int[10];`
 ### Khai báo mảng có giá trị ban đầu:
-`int[] arr = new int[]{1, 2, 3, 4};` <br\>
-hoặc: <br\>
-`int[] arr = {1, 2, 3, 4};` <\br>
+`int[] arr = new int[]{1, 2, 3, 4};` <br/>
+hoặc: <br/>
+`int[] arr = {1, 2, 3, 4};` <br/>
 Nếu mảng có n phần tử với n được nhập từ bàn phím: 
 `int[] arr = new int[n];`
 # Sắp xếp mảng:
