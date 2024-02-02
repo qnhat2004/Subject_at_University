@@ -1,5 +1,5 @@
 # Struct 
-- [Struct](#struct) trong c# là value type
+- [Struct](#struct) trong C# là **value type**
 - **operator overloading** phải để **static** -> không thể sử dụng **this**, phải có 2 tham số và bắt buộc phải có ít nhất 1 tham số là [Struct](#struct) đó
 
 ```csharp
