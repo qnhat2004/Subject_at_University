@@ -1,19 +1,19 @@
 # Subject at University - Tutorials and my experiences of programming subjects, and more exercises :>
 
-## 🤖 Trí tuệ nhân tạo - [AI](https://github.com/qnhat2004/Subject_at_University/tree/main/AI) (Artifical Intelligence)
+## 🤖 [Trí tuệ nhân tạo - AI](https://github.com/qnhat2004/Subject_at_University/tree/main/AI) (Artifical Intelligence)
   - Các thuật toán tìm kiếm
   - Code - ứng dụng thuật toán tìm kiếm để áp dụng vào giải các bài toán và trò chơi thực tế
 
-## 🧑‍🤝‍🧑 Nguyên lý lập trình hướng đối tượng - [Principal_OOP](https://github.com/qnhat2004/Subject_at_University/tree/main/OOP) (Object Oriented Programming)
-  - [Code các bài tập](https://github.com/qnhat2004/Subject_at_University/tree/main/OOP/Exercise)
+## 🧑‍🤝‍🧑 [Nguyên lý lập trình hướng đối tượng - Principal_OOP](https://github.com/qnhat2004/Subject_at_University/tree/main/OOP) (Object Oriented Programming)
+  - Code các bài tập
   - Tutorial
         
-## 🧠 Cấu trúc dữ liệu và thuật toán - [DSA](https://github.com/qnhat2004/Subject_at_University/tree/main/DSA) (Data Structures and Algorithms)
+## 🧠 [Cấu trúc dữ liệu và thuật toán - DSA](https://github.com/qnhat2004/Subject_at_University/tree/main/DSA) (Data Structures and Algorithms)
   - Cấu trúc dữ liệu
   - Thuật toán
   - Các bài tập mình đã làm
 
-## 🖥️ Lập trình window - [C#](https://github.com/qnhat2004/Subject_at_University/tree/main/C%23)
+## 🖥️ [Lập trình window - C#](https://github.com/qnhat2004/Subject_at_University/tree/main/C%23)
   - Các Project mình đã làm
 
 ## 👀 Những kiến thức ngoài lề mình đã bắt gặp và nó có thể rất hữu ích với cậu: [Issues](https://github.com/qnhat2004/Subject_at_University/issues)
