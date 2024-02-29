@@ -1,4 +1,5 @@
-namespace MyNameSpace;
+using System;
+using System.Collections.Generic;
 
 class Calculator
 {
@@ -20,7 +21,7 @@ class Calculator
         Console.Write("b = ");
         b = Convert.ToInt32(Console.ReadLine());
         Console.Write("tt = ");
-        tt = Console.ReadKey().KeyChar;
+        tt = Convert.ToChar(Console.ReadLine());
     }
 
     static KeyValuePair<double, bool> Calculate(int a, int b, char tt)
@@ -57,7 +58,8 @@ class Calculator
         }
         else
         {
-            Console.WriteLine("{0} + {1} = {2}", a, tt, b);
+            double ans = Calculate(a, b, tt).Key;
+            Console.WriteLine("{0} {1} {2} = {3}", a, tt, b, ans);
         }
     }
 }
