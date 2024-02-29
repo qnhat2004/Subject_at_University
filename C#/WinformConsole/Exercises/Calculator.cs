@@ -5,12 +5,12 @@ class Calculator
 {
     public static void Table_Control()
     {
-        Console.WriteLine("**Tro choi tinh nhanh**");
-        Console.WriteLine("**   +: tinh phep cong**");
-        Console.WriteLine("**   -: tinh phep tru    **");
-        Console.WriteLine("**   *: tinh phep nhan**");
-        Console.WriteLine("**   /: tinh phep chia  **");
-        Console.WriteLine("***********************");
+        Console.WriteLine("** Tro choi tinh nhanh **");
+        Console.WriteLine("**  +: tinh phep cong  **");
+        Console.WriteLine("**  -: tinh phep tru   **");
+        Console.WriteLine("**  *: tinh phep nhan  **");
+        Console.WriteLine("**  /: tinh phep chia  **");
+        Console.WriteLine("*************************");
     }
     
     public static void Input(out int a, out int b, out char tt)
