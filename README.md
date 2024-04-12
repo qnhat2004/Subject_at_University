@@ -1,4 +1,4 @@
-# Subject at University - Tutorials and my experiences of programming subjects, and more exercises :>
+# Souce code và hướng dẫn - Thuy Loi University
 
 ## 🤖 [Trí tuệ nhân tạo - AI](https://github.com/qnhat2004/Subject_at_University/tree/main/AI) (Artifical Intelligence)
   - Các thuật toán tìm kiếm
