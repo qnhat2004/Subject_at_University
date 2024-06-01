@@ -16,6 +16,10 @@
 ## 🖥️ [Lập trình window - C#](https://github.com/qnhat2004/Subject_at_University/tree/main/C%23)
   - Các Project mình đã làm
 
+## 🧠 [Thuật toán ứng dụng](https://github.com/qnhat2004/Thuat-toan-ung-dung)
+  - Lời giải Finetest
+  - Code mẫu thầy giáo
+
 ## 👀 Những kiến thức ngoài lề mình đã bắt gặp và nó có thể rất hữu ích với cậu: [Issues](https://github.com/qnhat2004/Subject_at_University/issues)
 
 > [!NOTE]
